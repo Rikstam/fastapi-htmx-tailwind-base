@@ -23,6 +23,6 @@ RUN pipenv install --system --deploy
 COPY . /usr/src/app/
 
 # Install Tailwind cli so there is no need for node.js
-#RUN curl -sLO https://github.com/tailwindlabs/tailwindcss/releases/latest/download/tailwindcss-linux-x64 \
-#    && chmod +x tailwindcss-linux-x64 \
-#    && mv tailwindcss-linux-x64 tailwindcss
+RUN curl -sLO https://github.com/tailwindlabs/tailwindcss/releases/latest/download/tailwindcss-linux-x64 \
+    && chmod +x tailwindcss-linux-x64 \
+    && mv tailwindcss-linux-x64 /usr/src/app/tailwindcss
