@@ -1,0 +1,20 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Details</title>
+    <script src="https://unpkg.com/htmx.org@1.7.0"></script>
+    <link href="{{ url_for('static', path='/dist/styles.css') }}" rel="stylesheet">
+</head>
+<body class="bg-blue-100">
+    {% block content %}
+    {% endblock %}
+    <script>
+        document.body.addEventListener('htmx:configRequest', (event) => {
+          event.detail.headers['X-CSRFToken'] = '{{ csrf_token }}';
+        })
+        htmx.logAll();
+      </script>
+</body>
+</html>
